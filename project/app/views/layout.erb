@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <% if current_user %>
+      Welcome, <%= @current_user.first_name %>!
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>
