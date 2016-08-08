@@ -1,6 +1,6 @@
 def sign_up
   visit('/')
-  click_button('Sign up')
+  click_link('Sign up')
   fill_in :first_name, with: 'Bart'
   fill_in :last_name, with: 'Kluczynski'
   fill_in :email_address, with: "bkluczynski@gmail.com"
