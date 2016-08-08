@@ -8,7 +8,32 @@ Responsibilities:
 - Sign up
 - Sign in
 - Sign out
-- List space/s
-- Book space/s
+
 
 Collaborators:  
+- space
+
+
+Space
+
+Responsibilities
+- List space/s
+
+- name space
+- description of space
+- price of space
+- space availability
+
+
+Collaborators:
+- Booking
+
+
+Booking
+Responsibilities:
+
+- send request
+- confirm request
+- book space
+
+Collaborators:
