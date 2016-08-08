@@ -7,6 +7,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+
   get '/' do
     erb :index
   end
@@ -27,16 +28,25 @@ class MakersBnB < Sinatra::Base
     redirect to('/')
   end
 
-  get '/spaces' do
-    erb :'spaces/index'
-  end
-
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
   end
 
+  get '/spaces/new' do
+    erb :'spaces/new'
+  end
+
+  get '/spaces' do
+    @spaces= Space.all
+    erb :'spaces/index'
+  end
+
+  post '/spaces' do
+    Space.create(name: params[:SpaceName])
+    redirect '/spaces'
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
