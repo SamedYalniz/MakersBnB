@@ -9,9 +9,14 @@ def sign_up(email_address: "bkluczynski@gmail.com", password: '12345', password_
   click_button('Submit')
 end
 
-def create_space(name)
+def create_space(name, description, price, available_from, available_to)
   visit '/spaces/new'
    fill_in('SpaceName', with: name)
+   fill_in('Description', with: description)
+   fill_in('Price', with: price)
+   fill_in('Available_from', with: available_from)
+   fill_in('Available_to', with: available_to)
+
    click_button('Create')
 end
 
