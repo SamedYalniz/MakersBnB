@@ -60,7 +60,6 @@ feature 'user creates new space' do
 
     scenario 'adding an available from and an available to fields' do
       sign_up
-      require 'pry'; binding.pry
       create_space(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
       visit('/spaces')
 
