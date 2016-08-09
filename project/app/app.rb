@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base
+  set :public_folder, Proc.new { File.join(root, 'public') }
 
   enable :sessions
   set :session_secret, 'super secret'

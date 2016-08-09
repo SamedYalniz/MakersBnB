@@ -1,0 +1,53 @@
+.page {
+  font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  color: white;
+}
+
+#container {
+  background-color: #aa1925;
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+}
+
+#main_logo {
+  position: relative;
+  float: left;
+  padding-left: 100px;
+  padding-top: 20px;
+}
+
+#buttons {
+  padding-right: 120px;
+  padding-top: 30px;
+}
+
+#bnb {
+  font-size: 34px;
+  float: right;
+  padding-top: 8px;
+  color: #062533;
+}
+
+.main_buttons {
+  position: relative;
+  float: right;
+  display: inline-block;
+  margin-right: 5px;
+  padding-right: 100px;
+}
+
+input[type=submit] {
+    background-color: #062533;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}

@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html class="page">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="styles/style.css" charset="utf-8">
   </head>
   <body>
 
-    <% if current_user %>
-      Welcome, <%= @current_user.first_name %>!
-      <form action='/sessions' method='post'>
-        <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Sign out'>
-      </form>
+    <div id="container">
+      <div id="main_logo"><img src="http://assets.makersacademy.com/images/logo/ma-wordmark-white.png">
+        <div id="bnb">BnB</div></div>
+      <div id="main_buttons"><% if current_user %>
+        Welcome, <%= @current_user.first_name %>!
+        <form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'>
+        </form>
 
-    <% else %>
-    <form action="/users/new">
-      <input type="submit" value="Sign up">
-    </form>
-    <form action="/sessions/new">
-      <input type="submit" value="Sign in">
-    </form>
-    <% end %>
+      <% else %>
+      <div id="buttons">
+      <form action="/users/new"><input type="submit" class="main_buttons" value="Sign up"></form>
+      <form action="/sessions/new"><input type="submit" class="main_buttons" value="Sign in"></form>
+    </div>
+      <% end %>
+    </div>
+
 
     <% if flash[:errors] && !flash[:errors].empty? %>
     <ul id="errors">
