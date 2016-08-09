@@ -14,8 +14,12 @@
       </form>
 
     <% else %>
-      <a href='/users/new'> <button type="button">Sign up</button></a>
-      <a href='/sessions/new'> <button type="button">Sign in</button></a>
+    <form action="/users/new">
+      <input type="submit" value="Sign up">
+    </form>
+    <form action="/sessions/new">
+      <input type="submit" value="Sign in">
+    </form>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>

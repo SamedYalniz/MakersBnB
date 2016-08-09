@@ -1,6 +1,6 @@
 def sign_up(email_address: "bkluczynski@gmail.com", password: '12345', password_confirmation: '12345')
   visit('/')
-  click_link('Sign up')
+  click_button('Sign up')
   fill_in :first_name, with: 'Bart'
   fill_in :last_name, with: 'Kluczynski'
   fill_in :email_address, with: email_address
@@ -24,5 +24,11 @@ def sign_in(email_address:, password:)
   visit("/sessions/new")
   fill_in :email_address, with: email_address
   fill_in :password, with: password
-  click_button "Sign in"
+  within 'form#sign_in' do
+    click_button "Sign in"
+  end
 end
+
+def sign_out
+  click_button("Sign out")
+end 

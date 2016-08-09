@@ -20,7 +20,7 @@ feature 'User sign in' do
 
   scenario 'user can sign in from homepage' do
     visit '/'
-    click_link 'Sign in'
+    click_button 'Sign in'
     expect(current_path).to eq '/sessions/new'
   end
 end
