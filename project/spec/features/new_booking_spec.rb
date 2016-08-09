@@ -10,7 +10,7 @@ feature 'user books a new space' do
      end
      expect(page).to have_content('Pick a night')
      find_field('calender').value
-     click_button('Request to book')
+    #  click_button('Request to book')
    end
 
 
