@@ -1,10 +1,6 @@
 feature 'User sign in' do
   let!(:user) do
-    User.create(email_address: "s.yalniz@hotmail.de",
-                first_name: "Samed",
-                last_name: "Yalniz",
-                password: "password123",
-                password_confirmation: "password123")
+    User.create(email_address: "s.yalniz@hotmail.de",first_name: "Samed",last_name: "Yalniz",password: "password123",password_confirmation: "password123")
   end
 
   scenario'with correct credentials' do

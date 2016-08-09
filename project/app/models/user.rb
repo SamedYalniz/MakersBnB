@@ -14,6 +14,8 @@ class User
   property :email_address, String, format: :email_address, required: true, unique: true
   property :password_digest, String, length: 60
 
+  has n, :spaces, through: Resource
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

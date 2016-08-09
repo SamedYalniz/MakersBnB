@@ -8,4 +8,6 @@ class Space
  property :available_from, Date
  property :available_to, Date
 
+ has 1, :user, through: Resource
+
 end

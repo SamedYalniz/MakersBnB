@@ -67,16 +67,21 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
-    @spaces= Space.all
+    @spaces = Space.all
     erb :'spaces/index'
   end
 
   post '/spaces' do
-    Space.create(name: params[:SpaceName],
+     @user = current_user
+     space = Space.create(name: params[:SpaceName],
                 description: params[:Description],
                 price: params[:Price],
                 available_from: params[:Available_from],
                 available_to: params[:Available_to])
+    @user.spaces << space
+    space.user = @user
+    space.save
+    @user.save
     redirect '/spaces'
   end
 
