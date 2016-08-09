@@ -1,11 +1,22 @@
 <h1> List of your spaces </h1>
 <ul id='spaces'>
    <% @spaces.each do |space| %>
-  <li> Name: <%= space.name%> </li>
-  <li> Price per night: £<%= space.price%> </li>
+   <li><form action='/spaces/space' method='post'>
+     <input type='hidden' value='<%= space.name %>' name='space'>
+     <input type='submit' value="<%= space.name %>">
+   </form></li>
+   <li> Name: <%= space.name%> </li>
+   <li> Price per night: £<%= space.price%> </li>
+
   <li> Description: <%= space.description%> </li>
   <li> Available from: <%= space.available_from%> </li>
   <li> Available to: <%= space.available_to%> </li>
   -----------------------------------------------------------------------------
     <%end%>
  </ul>
+
+
+<!-- <form action='/sessions' method='post'>         <input type='hidden' name='_method' value='delete'>           <input type='submit' value='Sign out'>       </form>
+
+
+<label id="email_address" for='email_address'>  Email: <input name='email_address' type='email' value='<%= @email %>'>      </label>      <label for='password'> Password: <input name='password' type='password'>      </label>      <input type='submit' value='Sign in'> -->

@@ -67,6 +67,19 @@ feature 'user creates new space' do
     end
 
 
+    scenario 'choosing a space' do
+      Space.create(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
+      visit('/spaces')
+      require 'pry' ;binding.pry
+      within 'ul#spaces' do
+        click_button('Barts Place')
+      end
+      expect(current_path).to eq ('/spaces/space')
+    end
+
+
+
+
 
 
 

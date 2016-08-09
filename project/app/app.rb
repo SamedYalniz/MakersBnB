@@ -39,8 +39,20 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
-    @spaces= Space.all
+    @spaces = Space.all
     erb :'spaces/index'
+  end
+
+
+  post '/spaces/space' do
+    @space = Space.first(name: params[:space])
+    session[:space] = @space
+    redirect '/spaces/space'
+  end
+
+  get '/spaces/space' do
+    @space = session[:space]
+    erb :'spaces/space'
   end
 
   post '/spaces' do
