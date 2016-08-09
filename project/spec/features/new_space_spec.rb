@@ -45,8 +45,17 @@ feature 'user creates new space' do
      expect(page.status_code).to eq(200)
      within'ul#spaces' do
        expect(page).to have_content('This is my amazingly beautiful space i want to tell you about so you can hire it out')
-     end
-  end
+      end
+    end
+
+    scenario 'adding a nightly rate to a new space' do
+      Space.create(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '£40' )
+      visit('/spaces')
+      expect(page.status_code).to eq(200)
+      within'ul#spaces' do
+        expect(page).to have_content('£40')
+      end
+    end
 
 
 
