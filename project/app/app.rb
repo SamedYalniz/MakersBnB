@@ -2,11 +2,14 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -18,14 +21,39 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(first_name: params[:first_name],
-                      last_name: params[:last_name],
+    @user = User.create(first_name: params[:first_name],
+                       last_name: params[:last_name],
                       email_address: params[:email_address],
                       password: params[:password],
                       password_confirmation: params[:password_confirmation])
-    @user.save
+    if @user.save
     session[:user_id] = @user.id
     redirect to('/')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    @user = User.authenticate(params[:email_address], params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect '/spaces'
+    else
+      @email = params[:email_address]
+      flash.now[:errors] = ["Email or password is incorrect"]
+      erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to '/'
   end
 
   helpers do
@@ -56,11 +84,16 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(name: params[:SpaceName],
+     @user = current_user
+     space = Space.create(name: params[:SpaceName],
                 description: params[:Description],
                 price: params[:Price],
                 available_from: params[:Available_from],
                 available_to: params[:Available_to])
+    @user.spaces << space
+    space.user = @user
+    space.save
+    @user.save
     redirect '/spaces'
   end
 
