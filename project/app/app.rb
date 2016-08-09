@@ -4,9 +4,9 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
 class MakersBnB < Sinatra::Base
+
   enable :sessions
   set :session_secret, 'super secret'
-
 
   get '/' do
     erb :index
@@ -44,7 +44,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(name: params[:SpaceName],description: params[:Description])
+    Space.create(name: params[:SpaceName],description: params[:Description],
+                  price: params[:Price])
     redirect '/spaces'
   end
 
