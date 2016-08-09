@@ -5,10 +5,11 @@ require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base
+
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
   register Sinatra::Flash
-
 
   get '/' do
     erb :index
@@ -44,9 +45,15 @@ class MakersBnB < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/spaces'
     else
-      flash.now[:erros] = @user.errors.full_messages
+      @email = params[:email_address]
+      flash.now[:errors] = ["Email or password is incorrect"]
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to '/'
   end
 
   helpers do
@@ -65,7 +72,11 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(name: params[:SpaceName])
+    Space.create(name: params[:SpaceName],
+                description: params[:Description],
+                price: params[:Price],
+                available_from: params[:Available_from],
+                available_to: params[:Available_to])
     redirect '/spaces'
   end
 

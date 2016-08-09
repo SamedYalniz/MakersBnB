@@ -1,7 +1,24 @@
 <form action='/spaces' method='post'>
 <label for='Space Name'>
-  <input type='text' name='SpaceName'>
+  Name:
+  <input type='text' name='SpaceName' required>
+</label><br>
+<label for='Price'>
+  Price:
+  <input type='type' name='Price'>
+</label><br>
+<label for='Description'><br>
+  Description:
+    <textarea name="Description" style="width:400px;height:250px;" required></textarea>
 </label>
- <input type='submit' value='Create'>
+<label for='Available_from'><br>
+  Available from:
+  <input name="Available_from" type="date" required>
+</label>
+<label for='Available_to'><br>
+  Available to:
+    <input name="Available_to" type="date" required>
+</label>
 
+ <input type='submit' value='Create'>
 </form>
