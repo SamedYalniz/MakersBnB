@@ -8,9 +8,9 @@
   <body>
 
     <div id="container">
-      <div id="main_logo"><img src="http://assets.makersacademy.com/images/logo/ma-wordmark-white.png">
+      <div ><img src="http://assets.makersacademy.com/images/logo/ma-wordmark-white.png" >
         <div id="bnb">BnB</div></div>
-      <div id="main_buttons"><% if current_user %>
+      <div id="buttons"><% if current_user %>
         Welcome, <%= @current_user.first_name %>!
         <form action='/sessions' method='post'>
           <input type='hidden' name='_method' value='delete'>

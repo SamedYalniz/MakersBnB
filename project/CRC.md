@@ -26,10 +26,10 @@ Responsibilities
 
 
 Collaborators:
-- Booking
+- Request
 
 
-Booking
+Request
 Responsibilities:
 
 - send request
