@@ -60,7 +60,6 @@ feature 'user creates new space' do
 
     scenario 'adding an available from and an available to fields' do
       sign_up
-      require 'pry'; binding.pry
       create_space(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
       visit('/spaces')
 
@@ -72,6 +71,19 @@ feature 'user creates new space' do
         expect(page).to have_content("Available to: 2016-09-15")
       end
     end
+
+
+    scenario 'choosing a space' do
+      sign_up
+      create_space(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
+      visit('/spaces')
+      within 'ul#spaces' do
+        click_button('Barts Place')
+      end
+      expect(current_path).to eq ('/spaces/space')
+    end
+
+
 
 
 

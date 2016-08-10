@@ -1,0 +1,30 @@
+
+<ul id='space'>
+<li>Name: <%= @space.name%> </li>
+<li> Price per night: £<%= @space.price%> </li>
+<li> Description: <%= @space.description%> </li>
+<li> Available from: <%= @space.available_from%> </li>
+<li> Available to: <%= @space.available_to%> </li>
+<li> Pick a night: </li>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker();
+  });
+  </script>
+</head>
+<body>
+<form action='/requests' method='post'>
+    <input id="datepicker" name='calender'/>
+    <input type='hidden' name='space' value='<%=@space.name%>' />
+    <input type='submit' name='Request' value='Request to book'/>
+</form>
+</body>
+</html>
+</ul>

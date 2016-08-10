@@ -31,3 +31,12 @@ end
 def sign_out
   click_button("Sign out")
 end
+
+def book_space(space)
+  visit('/spaces')
+  within 'ul#spaces' do
+    click_button(space)
+  end
+  fill_in('calender', with: '16/01/28')
+  click_button('Request to book')
+end
