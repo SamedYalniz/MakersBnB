@@ -20,6 +20,7 @@ display: inline;
   width: 100%;
   height: 100px;
   margin: 0 auto;
+  border-bottom: 3px solid #062533;
 }
 
 #main_logo {
@@ -30,8 +31,7 @@ display: inline;
 }
 
 #buttons {
-  padding-right: 120px;
-  padding-top: 30px;
+  padding-right: 10px;
 }
 
 #bnb {
@@ -41,13 +41,27 @@ display: inline;
   color: #062533;
 }
 
-.main_buttons {
+#welcome {
   position: relative;
   float: right;
-  display: inline-block;
-  margin-right: 5px;
-  padding-right: 100px;
+  padding-right: 210px;
+  padding-top: 10px;
 }
+
+#new_space {
+  /*position: relative;*/
+  float: right;
+  margin-right: 5px;
+  padding-right: 200px;
+}
+
+#sign_out {
+  /*position: relative;*/
+  float: right;
+  margin-right: 5px;
+  /*padding-right: 100px;*/
+}
+
 
 input[type=submit] {
     background-color: #062533;
@@ -68,11 +82,11 @@ input[type=submit] {
   width: 700px;
   text-align: center;
   margin: auto;
-  padding-top: 30px;
+  padding-top: 10px;
 
 }
 .spaces {
-  width: 600px;
+  width: 250px;
   text-align: left;
   margin: auto;
   padding-top: 10px;
@@ -87,7 +101,23 @@ input[type=submit] {
 
 }
 
+#sign_up {
+  width: 400px;
+  text-align: left;
+  margin: auto;
+  padding-top: 80px;
+
+}
+
+#sign_in {
+  width: 400px;
+  text-align: left;
+  margin: auto;
+  padding-top: 70px;
+
+}
+
 label{
    display:inline-block;
-   width:150px;
+   width:200px;
 }

@@ -17,9 +17,9 @@
       <li> Name: <%= space.name.capitalize%> </li>
       <li> Price per night: £<%= space.price%> </li>
       <li> Description: <%= space.description.capitalize%> </li>
-      <li> Available from: <%= space.available_from%> </li>
-      <li> Available to: <%= space.available_to%> </li>
-      -----------------------------------------------------------------------------
+      <li> Available from: <%= space.available_from.strftime('%d/%m/%Y')%> </li>
+      <li> Available to: <%= space.available_to.strftime('%d/%m/%Y')%> </li>
+      ----------------------------------------------------------------
 
         <%end%>
      </ul>
