@@ -64,7 +64,13 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/new' do
-    erb :'spaces/new'
+    @user = current_user
+    if @user
+      erb :'spaces/new'
+    else
+      flash.now[:errors] = ["Please sign in to list a space"]
+      redirect '/spaces'
+    end
   end
 
   get '/spaces' do
