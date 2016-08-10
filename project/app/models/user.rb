@@ -15,6 +15,7 @@ class User
   property :password_digest, String, length: 60
 
   has n, :spaces, through: Resource
+  has n, :requests, through: :spaces
 
   def password=(password)
     @password = password

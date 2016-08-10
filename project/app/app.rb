@@ -98,9 +98,19 @@ class MakersBnB < Sinatra::Base
     redirect '/spaces'
   end
 
-  post '/request' do
-    flash.now[:request] = 'The request to book has been delivered'
+  post '/requests' do
+    space = Space.first(name: params[:space])
+    request = Request.create(date: params[:date])
+    request.space = space
+    space.requests << request
+    request.save
+    space.save
+    flash.keep[:request] = 'The request to book has been delivered'
+    redirect '/requests'
+  end
 
+  get '/requests' do
+    erb :'requests/index'
   end
 
 

@@ -21,7 +21,9 @@
       <input type="submit" value="Sign in">
     </form>
     <% end %>
-
+    <% if flash[:request] %>
+    <%= flash[:request] %>
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
     <ul id="errors">
       <% flash[:errors].each do |error| %>

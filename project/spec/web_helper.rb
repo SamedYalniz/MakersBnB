@@ -31,3 +31,15 @@ end
 def sign_out
   click_button("Sign out")
 end
+
+def book_space
+  sign_up
+  create_space(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
+  visit('/spaces')
+  within 'ul#spaces' do
+    click_button('Barts Place')
+  end
+  require 'pry';binding.pry
+  fill_in('calender', with: '16/01/28')
+  click_button('Request to book')
+end
