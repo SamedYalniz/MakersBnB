@@ -66,6 +66,7 @@ class MakersBnB < Sinatra::Base
     erb :'spaces/new'
   end
 
+
   get '/spaces' do
     @spaces = Space.all
     erb :'spaces/index'
@@ -96,6 +97,12 @@ class MakersBnB < Sinatra::Base
     @user.save
     redirect '/spaces'
   end
+
+  post '/request' do
+    flash.now[:request] = 'The request to book has been delivered'
+
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
