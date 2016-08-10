@@ -73,9 +73,22 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+
   get '/spaces' do
     @spaces = Space.all
     erb :'spaces/index'
+  end
+
+
+  post '/spaces/space' do
+    @space = Space.first(name: params[:space])
+    session[:space_id] = @space.id
+    redirect '/spaces/space'
+  end
+
+  get '/spaces/space' do
+    @space = current_space
+    erb :'spaces/space'
   end
 
   post '/spaces' do
@@ -91,6 +104,36 @@ class MakersBnB < Sinatra::Base
     @user.save
     redirect '/spaces'
   end
+
+  post '/requests' do
+    @space = Space.first(name: params[:space])
+    request = Request.create(date: params[:calender])
+    request.space = @space
+    @space.requests << request
+    @space.save
+    @user = current_user
+    request.user = @user
+    request.save
+    @user.requests << request
+    @user.save
+    session[:user_id] = @user.id
+    session[:space_id] = @space.id
+    flash.keep[:request] = 'The request to book has been delivered'
+    redirect '/requests'
+  end
+
+  get '/requests' do
+   @user = current_user
+   @space = current_space
+    erb :'requests/index'
+  end
+
+  helpers do
+    def current_space
+      @current_space ||= Space.get(session[:space_id])
+    end
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
