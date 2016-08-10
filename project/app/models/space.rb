@@ -10,4 +10,6 @@ class Space
 
  has 1, :user, through: Resource
 
+
+
 end

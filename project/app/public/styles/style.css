@@ -1,11 +1,18 @@
-html {
+html, body {
+  color: #062533;
   margin: 0 auto;
   padding: 0;
 }
 
+input {
+display: inline;
+
+
+}
+
 .page {
   font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  color: white;
+  color: #062533;;
 }
 
 #container {
@@ -55,4 +62,32 @@ input[type=submit] {
     cursor: pointer;
     border-radius: 10px;
     font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+
+#space_title {
+  width: 700px;
+  text-align: center;
+  margin: auto;
+  padding-top: 30px;
+
+}
+.spaces {
+  width: 600px;
+  text-align: left;
+  margin: auto;
+  padding-top: 10px;
+
+}
+
+#spaces_new {
+  width: 400px;
+  text-align: left;
+  margin: auto;
+  padding-top: 50px;
+
+}
+
+label{
+   display:inline-block;
+   width:150px;
 }

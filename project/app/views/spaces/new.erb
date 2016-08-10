@@ -1,24 +1,38 @@
-<form action='/spaces' method='post'>
-<label for='Space Name'>
-  Name:
-  <input type='text' name='SpaceName' required>
-</label><br>
-<label for='Price'>
-  Price:
-  <input type='type' name='Price'>
-</label><br>
-<label for='Description'><br>
-  Description:
-    <textarea name="Description" style="width:400px;height:250px;" required></textarea>
-</label>
-<label for='Available_from'><br>
-  Available from:
-  <input name="Available_from" type="date" required>
-</label>
-<label for='Available_to'><br>
-  Available to:
-    <input name="Available_to" type="date" required>
-</label>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles/style.css" charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <div id='spaces_new'>
+    <form action='/spaces' method='post'>
+    <label for='Space Name'>
+       Name:</label>
+      <input type='text' name='SpaceName' required>
+    <br>
+    <br>
+    <label for='Price'>
+      Price:</label>
+      <input type='type' name='Price'>
+    <br>
+    <label for='Description'><br>
+      Description:</label><br>
+        <textarea name="Description" style="width:400px;height:250px;" required></textarea>
+     <br>
+    <label for='Available_from'><br>
+      Available from:</label>
+      <input name="Available_from" type="date" required>
+    <br>
+    <label for='Available_to'><br>
+      Available to:</label>
+        <input name="Available_to" type="date" required>
 
- <input type='submit' value='Create'>
-</form>
+     <br>
+     <input type='submit' value='Create'>
+    </form>
+  </div>
+
+  </body>
+</html>
