@@ -1,6 +1,6 @@
 
-feature 'user books a new space' do
-  scenario 'send a request' do
+feature 'user books a new space ' do
+  scenario 'send a request, and a second one' do
           sign_up
           create_space(name: 'Second Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
           create_space(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
@@ -19,10 +19,7 @@ feature 'user books a new space' do
           within 'ul#sent_requests' do
             expect(page).to have_content('Barts Place')
             expect(page).to have_content('Second Place')
-
           end
-
-
       end
 
 

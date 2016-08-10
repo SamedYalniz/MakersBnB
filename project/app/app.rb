@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base
+  set :public_folder, Proc.new { File.join(root, 'public') }
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -63,7 +64,13 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/new' do
-    erb :'spaces/new'
+    @user = current_user
+    if @user
+      erb :'spaces/new'
+    else
+      flash.now[:errors] = ["Please sign in to list a space"]
+      redirect '/spaces'
+    end
   end
 
 
