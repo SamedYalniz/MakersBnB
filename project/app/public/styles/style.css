@@ -1,3 +1,8 @@
+html {
+  margin: 0 auto;
+  padding: 0;
+}
+
 .page {
   font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   color: white;
