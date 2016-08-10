@@ -2,7 +2,7 @@ class Request
   include DataMapper::Resource
 
 property :id, Serial
-property :date, Date
+property :date, String
 
 has 1, :user, through: Resource
 has 1, :space, through: Resource

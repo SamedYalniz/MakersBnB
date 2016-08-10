@@ -22,8 +22,8 @@
 <body>
 <form action='/requests' method='post'>
     <input id="datepicker" name='calender'/>
+    <input type='hidden' name='space' value='<%=@space.name%>' />
     <input type='submit' name='Request' value='Request to book'/>
-    <input type='hidden' name='space' value='<%@space.name%>'
 </form>
 </body>
 </html>

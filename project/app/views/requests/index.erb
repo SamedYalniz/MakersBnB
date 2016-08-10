@@ -1,3 +1,6 @@
-<ul id='sent_requests'>
-  <
-</ul>
+  <ul id='sent_requests'>
+  <label> Made requests </label>
+    <% @user.requests.each do |request| %>
+    <li> <%= request.space.name %> </li>
+    <%end %>
+  </ul>
