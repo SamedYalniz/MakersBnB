@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="styles/style.css" charset="utf-8">
+    <link rel="stylesheet" href="../styles/style.css" charset="utf-8">
 
   </head>
   <body>
 
-    <div class="form">
+    <div id="sign_up">
+      <h2>New Member Registration</h2>
               <form action="/users" method="post">
 
               <div class="top-row">
@@ -17,7 +18,7 @@
                     First Name<span class="req">:</span>
                   </label>
                   <input type="text" required autocomplete="off" name="first_name" />
-                </div>
+                </div><br>
 
                 <div class="field-wrap">
                   <label>
@@ -25,28 +26,28 @@
                   </label>
                   <input type="text"required autocomplete="off" name="last_name"/>
                 </div>
-              </div>
+              </div><br>
 
               <div class="field-wrap">
                 <label>
                   Email Address<span class="req">:</span>
                 </label>
                 <input type="email"required autocomplete="off" name="email_address"/>
-              </div>
+              </div><br>
 
               <div class="field-wrap">
                 <label>
                   Set A Password<span class="req">:</span>
                 </label>
                 <input type="password"required autocomplete="off" name="password"/>
-              </div>
+              </div><br>
 
               <div class="field-wrap">
                 <label>
                   Retype your password<span class="req">:</span>
                 </label>
                 <input type="password"required autocomplete="off" name="password_confirmation"/>
-              </div>
+              </div><br>
 
               <input type='submit' value='Submit'>
 

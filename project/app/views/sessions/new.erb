@@ -1,8 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles/style.css" charset="utf-8">
+    <title>Makers Academy BnB</title>
+  </head>
+  <body>
+    <div id="sign_in">
+      <h2>Members sign in</h2>
+    <form action='/sessions' method='post'> 
+        <label for='email_address'> Email: </label> 
+          <input name='email_address' type='email' value='<%= @email %>'<br><br> 
 
-<form id="sign_in" action='/sessions' method='post'> 
-    <label id="email_address" for='email_address'>  Email: <input name='email_address' type='email' value='<%= @email %>'> 
-    </label> 
-    <label for='password'> Password: <input name='password' type='password'> 
-    </label> 
-    <input type='submit' value='Sign in'>
- </form>
+        <label for='password'> Password: </label> 
+          <input name='password' type='password'> 
+          <br><br>
+
+        <input type='submit' value='Sign in'>
+ </form></div>
+  </body>
+</html>

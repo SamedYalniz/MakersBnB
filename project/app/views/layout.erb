@@ -8,14 +8,15 @@
   <body>
 
     <div id="container">
-      <div id="main_logo"><img src="http://assets.makersacademy.com/images/logo/ma-wordmark-white.png">
+      <div id="main_logo"><a href="/"><img src="http://assets.makersacademy.com/images/logo/ma-wordmark-white.png"></a>
         <div id="bnb">BnB</div></div>
-      <div id="main_buttons"><% if current_user %>
-        Welcome, <%= @current_user.first_name %>!
-        <form action='/sessions' method='post'>
-          <input type='hidden' name='_method' value='delete'>
-            <input type='submit' value='Sign out'>
+      <div id="welcome"><% if current_user %>
+        Welcome, <%= @current_user.first_name %></div>
+        <div id="new_space"><form action="/spaces/new"><input type="submit"  value="List New Space"></div>
         </form>
+        <div id="sign_out"><form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'></form></div>
 
       <% else %>
       <div id="buttons">

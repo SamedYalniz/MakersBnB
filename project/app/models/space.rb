@@ -12,4 +12,6 @@ class Space
  has 1, :user, through: Resource
  has n, :requests, through: Resource
 
+
+
 end
