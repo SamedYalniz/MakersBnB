@@ -11,6 +11,13 @@ feature 'user can confirm booking made to their space' do
     within 'ul#received_requests' do
         expect(page).to have_content('Barts Place')
     end
+  end
+  scenario 'user can confirm request made on one of their spaces' do
+    receive_request
 
+    within 'ul#received_requests' do
+    click_button('Barts Place')
+    end
+    expect(current_path).to eq('/requests/request')
   end
 end

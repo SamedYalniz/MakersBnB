@@ -128,6 +128,15 @@ class MakersBnB < Sinatra::Base
     erb :'requests/index'
   end
 
+  post '/requests/request' do
+
+  redirect 'requests/request'
+  end
+
+  get 'requests/request' do
+    erb :'requests/request'
+  end
+
   helpers do
     def current_space
       @current_space ||= Space.get(session[:space_id])

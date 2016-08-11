@@ -4,3 +4,15 @@
     <li> <%= request.space.name %> </li>
     <%end %>
   </ul>
+  <ul id='received_requests'>
+    <label> Received requests </label>
+    <% @user.spaces.each do |space| %>
+      <% space.requests.each do |request| %>
+      <li> <%= request.space.name %> </li>
+      <li> <form action='/requests/request' method='post'>
+        <input type='hidden' value= '<%=request.id%>' name='request_id'>
+        <input type='submit' value='<%=request.space.name%>'>
+      </form> </li>
+      <%end%>
+    <%end%>
+  </ul>
