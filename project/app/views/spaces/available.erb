@@ -1,0 +1,19 @@
+<div class='spaces'>
+<ul id='spaces'>
+   <% @spaces.each do |space| %>
+  <li>  <%= space.name%>  </li>
+
+  <li> Name: <%= space.name%> </li>
+  <li> Price per night: £<%= space.price%> </li>
+  <li> Description: <%= space.description%> </li>
+  <li> Available from: <%= space.available_from.strftime('%d/%m/%Y')%> </li>
+  <li> Available to: <%= space.available_to.strftime('%d/%m/%Y')%> </li>
+  <li><form action='/spaces/space' method='post'>
+    <input type='hidden' value='<%= space.name %>' name='space'>
+    <input type='submit' value="Book this Space">
+      </form></li>
+  ----------------------------------------------------------------
+
+    <%end%>
+ </ul>
+</div>

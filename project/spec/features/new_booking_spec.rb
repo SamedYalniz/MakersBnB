@@ -9,7 +9,6 @@ feature 'user books a new space ' do
           book_space('Barts Place')
           expect(page).to have_content('The request to book has been delivered')
           expect(current_path).to eq('/requests')
-          require 'pry';binding.pry
           within 'ul#sent_requests' do
             expect(page).to have_content('Barts Place')
           end

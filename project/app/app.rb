@@ -29,7 +29,7 @@ class MakersBnB < Sinatra::Base
                       password_confirmation: params[:password_confirmation])
     if @user.save
     session[:user_id] = @user.id
-    redirect to('/')
+    redirect to('/spaces')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -103,6 +103,29 @@ class MakersBnB < Sinatra::Base
     space.save
     @user.save
     redirect '/spaces'
+  end
+
+  post '/spaces/available' do
+    @spaces = Space.all
+    available_from = params[:available_from]
+    available_to = params[:available_to]
+    @available = (available_from..available_to).map(&:to_s)
+    @spaces.each do |space|
+      @space = space.availability
+    end
+    @intersection = @space && @available
+    if !@intersection.empty?
+      session[:intersection] = @intersection
+      redirect to('/spaces/available')
+    else
+      flash.now[:notice] = ['No matches found']
+      erb :'/spaces'
+    end
+  end
+
+  get '/spaces/available' do
+    @spaces = session[:intersection]
+    erb :'spaces/available'
   end
 
   post '/requests' do

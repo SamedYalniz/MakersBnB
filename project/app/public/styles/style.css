@@ -93,6 +93,13 @@ input[type=submit] {
 
 }
 
+.availability {
+  width: 230px;
+  text-align: left;
+  margin: auto;
+  text-align: center;
+}
+
 #spaces_new {
   width: 400px;
   text-align: left;
