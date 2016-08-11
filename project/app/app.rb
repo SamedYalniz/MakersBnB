@@ -57,11 +57,7 @@ class MakersBnB < Sinatra::Base
     redirect to '/'
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+
 
   get '/spaces/new' do
     @user = current_user
@@ -81,7 +77,7 @@ class MakersBnB < Sinatra::Base
 
 
   post '/spaces/space' do
-    @space = Space.first(name: params[:space])
+    @space = Space.first(id: params[:space])
     session[:space_id] = @space.id
     redirect '/spaces/space'
   end
@@ -106,7 +102,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/requests' do
-    @space = Space.first(name: params[:space])
+    @space = Space.first(id: params[:space])
     request = Request.create(date: params[:calender])
     request.space = @space
     @space.requests << request
@@ -128,11 +124,32 @@ class MakersBnB < Sinatra::Base
     erb :'requests/index'
   end
 
+  post '/requests/request' do
+    @request = Request.get(params[:request])
+    session[:request_id] = @request.id
+    redirect '/requests/request'
+  end
+
+  get '/requests/request' do
+    @request = current_request
+    erb :'requests/request'
+  end
+
+
   helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+
     def current_space
       @current_space ||= Space.get(session[:space_id])
     end
+
+    def current_request
+      @current_request ||= Request.get(session[:request_id])
+    end
   end
+
 
 
   # start the server if ruby file executed directly
