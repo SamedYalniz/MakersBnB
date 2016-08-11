@@ -14,7 +14,7 @@
        <% @spaces.each do |space| %>
       <li>  <%= space.name.capitalize%>  </li>
       <li> User: <%= space.user.first_name.capitalize %> </li>
-      <li> Name: <%= space.name.capitalize%> </li>
+      <li> Name: <%= space.name%> </li>
       <li> Price per night: £<%= space.price%> </li>
       <li> Description: <%= space.description.capitalize%> </li>
       <li> Available from: <%= space.available_from.strftime('%d/%m/%Y')%> </li>

@@ -23,18 +23,20 @@ def sign_in(email_address:, password:)
   visit("/sessions/new")
   fill_in :email_address, with: email_address
   fill_in :password, with: password
-  within 'form#sign_in' do
+  within 'div#sign_in' do
     click_button "Sign in"
   end
 end
 
 def sign_out
-  click_button("Sign out")
+  within 'div#sign_out' do
+    click_button("Sign out")
+  end
 end
 
 def book_space(space)
   visit('/spaces')
-  within 'ul#spaces' do
+  within 'div.spaces' do
     click_button(space)
   end
   fill_in('calender', with: '16/01/28')

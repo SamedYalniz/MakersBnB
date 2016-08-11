@@ -7,10 +7,8 @@ feature 'user books a new space ' do
           sign_out
           sign_up(email_address: "s.yalniz@gmail.com", password: '12345', password_confirmation: '12345')
           book_space('Barts Place')
-          require 'pry';binding.pry
           expect(page).to have_content('The request to book has been delivered')
           expect(current_path).to eq('/requests')
-          require 'pry';binding.pry
           within 'ul#sent_requests' do
             expect(page).to have_content('Barts Place')
           end
@@ -21,9 +19,6 @@ feature 'user books a new space ' do
             expect(page).to have_content('Second Place')
           end
       end
-
-
-
 
 
 
