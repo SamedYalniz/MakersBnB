@@ -110,10 +110,14 @@ class MakersBnB < Sinatra::Base
     available_from = params[:available_from]
     available_to = params[:available_to]
     @available = (available_from..available_to).map(&:to_s)
+    @intersection = []
     @spaces.each do |space|
       @space = space.availability
+      if @space && @available
+      @intersection << space
+      end
     end
-    @intersection = @space && @available
+
     if !@intersection.empty?
       session[:intersection] = @intersection
       redirect to('/spaces/available')
