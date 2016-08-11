@@ -103,14 +103,14 @@ class MakersBnB < Sinatra::Base
 
   post '/requests' do
     @space = Space.first(id: params[:space])
-    bookingrequest = BookingRequest.create(date: params[:calender])
-    bookingrequest.space = @space
-    @space.booking_requests << bookingrequest
+    booking_request = BookingRequest.create(date: params[:calender])
+    booking_request.space = @space
+    @space.booking_requests << booking_request
     @space.save
     @user = current_user
-    bookingrequest.user = @user
-    bookingrequest.save
-    @user.booking_requests << bookingrequest
+    booking_request.user = @user
+    booking_request.save
+    @user.booking_requests << booking_request
     @user.save
     session[:user_id] = @user.id
     session[:space_id] = @space.id
@@ -124,14 +124,14 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/requests/request' do
-    @request = BookingRequest.first(id: params[:request])
+    @booking_request = BookingRequest.first(id: params[:request])
     binding.pry
-    session[:bookingrequest_id] = @request.id
+    session[:booking_request_id] = @booking_request.id
     redirect '/requests/request'
   end
 
   get '/requests/request' do
-    @request = current_request
+    @booking_request = current_request
     erb :'requests/request'
   end
 
@@ -146,7 +146,7 @@ class MakersBnB < Sinatra::Base
     end
 
     def current_request
-      @current_request ||= BookingRequest.get(session[:bookingrequest_id])
+      @current_request ||= BookingRequest.get(session[:booking_request_id])
     end
   end
 
