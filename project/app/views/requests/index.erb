@@ -1,13 +1,13 @@
   <ul id='sent_requests'>
   <label> Made requests </label>
-    <% @user.requests.each do |request| %>
+    <% @user.booking_requests.each do |request| %>
     <li> <%= request.space.name %> </li>
     <%end %>
   </ul>
   <ul id='received_requests'>
     <label> Received requests </label>
     <% @user.spaces.each do |space| %>
-      <% space.requests.each do |request| %>
+      <% space.booking_requests.each do |request| %>
       <li> <%= request.space.name %> </li>
       <li> <form action='/requests/request' method='post'>
         <input type='hidden' value= '<%=request.id%>' name='request'>
