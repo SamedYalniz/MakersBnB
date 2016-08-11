@@ -49,16 +49,15 @@
    so that I can hire a space for a night
    I would like to be able to send a request to the owner
 
- B Bart, Samed  
+  Bart, Samed  
     As a signed-up user(Host)    
     so that we can agree to hire out a space
     I would like to be able to approve the request
 
   Joe, Judge  
    As a signed-up User (Guest)        
-   so that I cannot book a space that has been already booked
-   I would like to be able to see only spaces that are
-   available
+   so that I cannot book a space outside of its availability
+   I would like to be able to see only spaces that are available
 
  Bart, Judge  
   As a signed-up User (Host)        
