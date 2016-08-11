@@ -20,7 +20,6 @@ feature 'user can confirm booking made to their space' do
     click_button('Barts Place')
     end
     expect(current_path).to eq('/requests/request')
-
     expect(page).to have_content('Barts Place')
     expect(page).to have_content('Bart')
     expect(page).to have_content('16/01/28')
