@@ -64,8 +64,8 @@ feature 'user creates new space' do
       visit('/spaces')
      expect(page.status_code).to eq(200)
       within 'ul#spaces' do
-        expect(page).to have_content("Available from: 2016-08-15")
-        expect(page).to have_content("Available to: 2016-09-15")
+        expect(page).to have_content("Available from: 15/08/2016")
+        expect(page).to have_content("Available to: 15/09/2016")
       end
     end
 
@@ -79,7 +79,7 @@ feature 'user creates new space' do
       create_space(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
       visit('/spaces')
       within 'ul#spaces' do
-        click_button('Barts Place')
+        click_button('Book this Space')
       end
       expect(current_path).to eq ('/spaces/space')
     end

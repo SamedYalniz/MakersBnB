@@ -23,9 +23,7 @@ def sign_in(email_address:, password:)
   visit("/sessions/new")
   fill_in :email_address, with: email_address
   fill_in :password, with: password
-  within 'form#sign_in' do
-    click_button "Sign in"
-  end
+  click_button "Sign in"
 end
 
 def sign_out
@@ -34,9 +32,7 @@ end
 
 def book_space(space)
   visit('/spaces')
-  within 'ul#spaces' do
-    click_button(space)
-  end
+  click_button('Book this Space')
   fill_in('calender', with: '16/01/28')
   click_button('Request to book')
 end
