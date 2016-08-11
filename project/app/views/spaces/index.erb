@@ -20,7 +20,7 @@
       <li> Available from: <%= space.available_from.strftime('%d/%m/%Y')%> </li>
       <li> Available to: <%= space.available_to.strftime('%d/%m/%Y')%> </li>
       <li><form action='/spaces/space' method='post'>
-        <input type='hidden' value='<%= space.name %>' name='space'>
+        <input type='hidden' value='<%= space.id %>' name='space'>
         <input type='submit' value="<%= space.name %>">
           </form></li>
       ----------------------------------------------------------------

@@ -14,10 +14,15 @@ feature 'user can confirm booking made to their space' do
   end
   scenario 'user can confirm request made on one of their spaces' do
     receive_request
+    require 'pry'; binding.pry
 
     within 'ul#received_requests' do
     click_button('Barts Place')
     end
     expect(current_path).to eq('/requests/request')
+
+    expect(page).to have_content('Barts Place')
+    expect(page).to have_content('Bart')
+    expect(page).to have_content('16/01/28')
   end
 end
