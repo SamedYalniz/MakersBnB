@@ -27,8 +27,12 @@
     <div class='spaces'>
     <ul id='spaces'>
        <% @spaces.each do |space| %>
+
       <li>  <%= space.name%>  </li>
 
+
+      <li>  <%= space.name.capitalize%>  </li>
+      <li> User: <%= space.user.first_name.capitalize %> </li>
       <li> Name: <%= space.name%> </li>
       <li> Price per night: £<%= space.price%> </li>
       <li> Description: <%= space.description%> </li>
@@ -37,6 +41,8 @@
       <li><form action='/spaces/space' method='post'>
         <input type='hidden' value='<%= space.name %>' name='space'>
         <input type='submit' value="Book this Space">
+        <input type='hidden' value='<%= space.id %>' name='space'>
+        <input type='submit' value="<%= space.name %>">
           </form></li>
       ----------------------------------------------------------------
 

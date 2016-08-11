@@ -24,15 +24,36 @@ def sign_in(email_address:, password:)
   fill_in :email_address, with: email_address
   fill_in :password, with: password
   click_button "Sign in"
+
+  within 'div#sign_in' do
+    click_button "Sign in"
+  end
+
 end
 
 def sign_out
-  click_button("Sign out")
+  within 'div#sign_out' do
+    click_button("Sign out")
+  end
 end
 
 def book_space(space)
   visit('/spaces')
   click_button('Book this Space')
+  within 'div.spaces' do
+    click_button(space)
+  end
   fill_in('calender', with: '16/01/28')
   click_button('Request to book')
 end
+
+ def receive_request
+   sign_up
+   create_space(name: 'Barts Place', description: 'This is my amazingly beautiful space i want to tell you about so you can hire it out', price: '40', available_from: '16/08/15', available_to: '16/09/15')
+   sign_out
+   sign_up(email_address: 'bartjudge@me.com')
+   book_space('Barts Place')
+   sign_out
+   sign_in(email_address: "bkluczynski@gmail.com", password: '12345')
+   visit('/requests')
+  end

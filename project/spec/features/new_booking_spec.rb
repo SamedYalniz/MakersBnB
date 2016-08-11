@@ -22,7 +22,4 @@ feature 'user books a new space ' do
 
 
 
-
-
-
 end
