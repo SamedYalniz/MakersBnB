@@ -24,4 +24,25 @@ feature 'user can confirm booking made to their space' do
     expect(page).to have_content('Bart')
     expect(page).to have_content('16/01/28')
   end
+
+  scenario 'user can confirm or deny the request made on one of their spaces' do
+    receive_request
+    within 'ul#received_requests' do
+    click_button('Barts Place')
+    end
+    expect(current_path).to eq('/requests/request')
+    expect(page).to have_content('Barts Place')
+    expect(page).to have_content('Bart')
+    expect(page).to have_content('16/01/28')
+    click_button('Confirm the request')
+    expect(current_path).to eq('/requests')
+  end
+
+
+
+
+
+
+
+
 end

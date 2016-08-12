@@ -1,4 +1,9 @@
 
-<%= @booking_request.space.name %>
-<%= @booking_request.date %>
-<%= @booking_request.user.first_name %>
+<%= @booking_request.space.name %><br>
+<%= @booking_request.date %><br>
+<%= @booking_request.user.first_name %><br>
+
+<form action="/requests"><input type="submit" class="request_confirmation_buttons" value="Confirm the request"></form>
+
+<form action="/requests"><input type="submit"
+class="request_confirmation_buttons" value="Cancel the request"></form>
