@@ -31,6 +31,9 @@
     <%= flash[:request] %>
     <% end %>
 
+    <% if flash[:confirmation]%>
+    <%= flash[:confirmation] %>
+    <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
     <ul id="errors">

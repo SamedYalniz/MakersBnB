@@ -2,6 +2,7 @@
   <label> Made requests </label>
     <% @user.booking_requests.each do |booking_request| %>
     <li> <%= booking_request.space.name %> </li>
+    <li> <%= booking_request.request_status %></li>
     <%end %>
   </ul>
   <ul id='received_requests'>
@@ -9,6 +10,7 @@
     <% @user.spaces.each do |space| %>
       <% space.booking_requests.each do |booking_request| %>
       <li> <%= booking_request.space.name %> </li>
+      <li> <%= booking_request.request_status %></li>
       <li> <form action='/requests/request' method='post'>
         <input type='hidden' value= '<%=booking_request.id%>' name='request'>
         <input type='submit' value='<%=booking_request.space.name%>'>

@@ -2,8 +2,14 @@
 <%= @booking_request.space.name %><br>
 <%= @booking_request.date %><br>
 <%= @booking_request.user.first_name %><br>
+Confirmation accepted: <%= @booking_request.request_status %><br>
 
-<form action="/requests"><input type="submit" class="request_confirmation_buttons" value="Confirm the request"></form>
+
+<form action="/requests" method="post">
+  <input type="hidden" value="<%= @booking_request.id %>" name="status">
+  <input type="submit" value="Confirm the request">
+
+</form>
 
 <form action="/requests"><input type="submit"
 class="request_confirmation_buttons" value="Cancel the request"></form>

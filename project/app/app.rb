@@ -102,23 +102,31 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/requests' do
-    @space = Space.first(id: params[:space])
-    booking_request = BookingRequest.create(date: params[:calender])
-    booking_request.space = @space
-    @space.booking_requests << booking_request
-    @space.save
-    @user = current_user
-    booking_request.user = @user
-    booking_request.save
-    @user.booking_requests << booking_request
-    @user.save
-    session[:user_id] = @user.id
-    session[:space_id] = @space.id
-    flash.keep[:request] = 'The request to book has been delivered'
+    if params[:status]
+      @booking_request = BookingRequest.get(params[:status])
+      @booking_request.request_status = true
+      require 'pry'; binding.pry
+    else
+      @space = Space.first(id: params[:space])
+      booking_request = BookingRequest.create(date: params[:calender], request_status: false)
+      booking_request.space = @space
+      @space.booking_requests << booking_request
+      @space.save
+      @user = current_user
+      booking_request.user = @user
+      booking_request.save
+      @user.booking_requests << booking_request
+      @user.save
+      session[:user_id] = @user.id
+      session[:space_id] = @space.id
+      flash.keep[:request] = 'The request to book has been delivered'
+
+    end
     redirect '/requests'
   end
 
   get '/requests' do
+    flash.now[:confirmation] = 'Your request has been confirmed'
    @user = current_user
     erb :'requests/index'
   end
