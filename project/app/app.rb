@@ -125,7 +125,6 @@ class MakersBnB < Sinatra::Base
 
   post '/requests/request' do
     @booking_request = BookingRequest.first(id: params[:request])
-    binding.pry
     session[:booking_request_id] = @booking_request.id
     redirect '/requests/request'
   end
